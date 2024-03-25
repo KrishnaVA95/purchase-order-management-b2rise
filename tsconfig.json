@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "lib": ["ES2022"],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "module": "commonjs",
+        "baseUrl": "./",
+        "rootDir": "./",
+        "outDir": "../gen/srv/srv",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "paths": {
+            "@/*": ["srv/*"],
+            "@tests/*": ["tests/*"]
+        }
+    },
+    "include": [
+        "srv",
+        "tests"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
