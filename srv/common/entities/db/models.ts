@@ -1,4 +1,18 @@
 export namespace db.models {
+    export interface Departments extends Managed {
+        id: string;
+        departmentName: string;
+        employees: Employees[];
+    }
+
+    export interface Employees extends Managed {
+        id: string;
+        department?: Departments;
+        department_id?: string;
+        name: string;
+        email: string;
+    }
+
     export interface Product extends Managed {
         id: string;
         supplier?: Supplier;
@@ -39,6 +53,8 @@ export namespace db.models {
     }
 
     export enum Entity {
+        Departments = "db.models.Departments",
+        Employees = "db.models.Employees",
         Product = "db.models.Product",
         PurchaseOrderHeaders = "db.models.PurchaseOrderHeaders",
         PurchaseOrderItems = "db.models.PurchaseOrderItems",
@@ -46,6 +62,8 @@ export namespace db.models {
     }
 
     export enum SanitizedEntity {
+        Departments = "Departments",
+        Employees = "Employees",
         Product = "Product",
         PurchaseOrderHeaders = "PurchaseOrderHeaders",
         PurchaseOrderItems = "PurchaseOrderItems",
@@ -84,6 +102,98 @@ export namespace sap.common {
         Countries = "Countries",
         Currencies = "Currencies",
         Languages = "Languages"
+    }
+}
+
+export namespace EmployeeManagementService {
+    export interface Departments {
+        createdAt?: Date;
+        createdBy?: string;
+        modifiedAt?: Date;
+        modifiedBy?: string;
+        id: string;
+        departmentName: string;
+        employees: Employees[];
+    }
+
+    export interface Employees {
+        createdAt?: Date;
+        createdBy?: string;
+        modifiedAt?: Date;
+        modifiedBy?: string;
+        id: string;
+        department?: Departments;
+        department_id?: string;
+        name: string;
+        email: string;
+    }
+
+    export enum Entity {
+        Departments = "EmployeeManagementService.Departments",
+        Employees = "EmployeeManagementService.Employees"
+    }
+
+    export enum SanitizedEntity {
+        Departments = "Departments",
+        Employees = "Employees"
+    }
+}
+
+export namespace PurchaseOrderManagementAdminService {
+    export interface Product {
+        createdAt?: Date;
+        createdBy?: string;
+        modifiedAt?: Date;
+        modifiedBy?: string;
+        id: string;
+        supplier?: db.models.Supplier;
+        supplier_id?: string;
+        purchaseOrderItem?: PurchaseOrderItems;
+        purchaseOrderItem_id?: string;
+        purchaseOrderItem_header?: unknown;
+        name: string;
+        description: string;
+        price: number;
+    }
+
+    export interface PurchaseOrderHeaders {
+        createdAt?: Date;
+        createdBy?: string;
+        modifiedAt?: Date;
+        modifiedBy?: string;
+        id: string;
+        company: string;
+        purchasingOrganization: string;
+        purchasingGroup: string;
+        items: PurchaseOrderItems[];
+    }
+
+    export interface PurchaseOrderItems {
+        createdAt?: Date;
+        createdBy?: string;
+        modifiedAt?: Date;
+        modifiedBy?: string;
+        id: string;
+        header?: PurchaseOrderHeaders;
+        header_id?: string;
+        material: string;
+        quantity: number;
+        uom: string;
+        netPrice: number;
+        center: string;
+        products: Product[];
+    }
+
+    export enum Entity {
+        Product = "PurchaseOrderManagementAdminService.Product",
+        PurchaseOrderHeaders = "PurchaseOrderManagementAdminService.PurchaseOrderHeaders",
+        PurchaseOrderItems = "PurchaseOrderManagementAdminService.PurchaseOrderItems"
+    }
+
+    export enum SanitizedEntity {
+        Product = "Product",
+        PurchaseOrderHeaders = "PurchaseOrderHeaders",
+        PurchaseOrderItems = "PurchaseOrderItems"
     }
 }
 
