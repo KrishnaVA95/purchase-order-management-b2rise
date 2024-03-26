@@ -26,3 +26,7 @@ Learn more at https://cap.cloud.sap/docs/get-started/.
 
 
 filtros: https://www.odata.org/documentation/odata-version-2-0/uri-conventions/ 
+
+
+Receita de bolo 
+// Model => CSV => serviço

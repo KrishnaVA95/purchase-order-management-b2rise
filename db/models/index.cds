@@ -8,3 +8,4 @@ using from './supplier';
 using from './product';
 using from './departments';
 using from './employees';
+using from './companies';
