@@ -105,6 +105,40 @@ export namespace sap.common {
     }
 }
 
+export namespace EmployeeManagementAdminService {
+    export interface Departments {
+        createdAt?: Date;
+        createdBy?: string;
+        modifiedAt?: Date;
+        modifiedBy?: string;
+        id: string;
+        departmentName: string;
+        employees: Employees[];
+    }
+
+    export interface Employees {
+        createdAt?: Date;
+        createdBy?: string;
+        modifiedAt?: Date;
+        modifiedBy?: string;
+        id: string;
+        department?: Departments;
+        department_id?: string;
+        name: string;
+        email: string;
+    }
+
+    export enum Entity {
+        Departments = "EmployeeManagementAdminService.Departments",
+        Employees = "EmployeeManagementAdminService.Employees"
+    }
+
+    export enum SanitizedEntity {
+        Departments = "Departments",
+        Employees = "Employees"
+    }
+}
+
 export namespace EmployeeManagementService {
     export interface Departments {
         createdAt?: Date;

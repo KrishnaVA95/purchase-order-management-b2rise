@@ -35,6 +35,16 @@
                             "email": ["test@test.com"],
                             "Groups": ["TEST_GROUPS"]
                         }
+                    },
+                    "rh": {
+                        "password": "rh",
+                        "roles": [
+                            "ROLE_HR"
+                        ],
+                        "userAttributes": {
+                            "email": ["test@test.com"],
+                            "Groups": ["TEST_GROUPS"]
+                        }
                     }
                 }
             }
